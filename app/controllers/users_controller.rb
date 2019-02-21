@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
     validate_recaptcha!
 
-    return account_creation_error(user) unless user.valid?
+    return account_creation_error(user.errors) unless user.valid?
 
     call_service(CreateUserAccount,
                  account_details: user,
