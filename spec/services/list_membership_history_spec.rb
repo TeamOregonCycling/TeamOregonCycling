@@ -6,7 +6,6 @@ RSpec.describe ListMembershipHistory do
     with_result: result_handler
   }}
 
-  let(:context_user) { create(:user) }
   let(:user) { create(:user) }
   let!(:membership_1) {
     create(:membership, user: user, ends_on: Date.civil(2018,1,1))
@@ -16,10 +15,6 @@ RSpec.describe ListMembershipHistory do
   }
   let(:result_handler) { ->(user) { @result = user } }
   let(:result) { @result }
-
-  service_double(:authorizer, 'Authorize') { |authorized:, **_|
-    authorized.call
-  }
 
   it_requires_permission :view_membership_history, on: :user
 

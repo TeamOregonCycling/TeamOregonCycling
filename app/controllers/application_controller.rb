@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
   class RequestHalted < RuntimeError; end
 
-  include TheHelp::ServiceCaller
   include TheHelp::ProvidesCallbacks
+  include TheHelp::ServiceCaller
 
   protect_from_forgery with: :exception
   around_action :catch_halt
@@ -27,6 +27,17 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  callback(:membership_expired) do |membership|
+    flash.now[:warning] = render_to_string('application/membership_expired_warning',
+                                       locals: { membership: membership },
+                                       layout: false)
+  end
+
+  callback(:no_membership_history) do
+    flash.now[:warning] = render_to_string('application/no_membership_warning',
+                                       layout: false)
+  end
+
   private
 
   def configure_logging(&block)
@@ -46,17 +57,6 @@ class ApplicationController < ActionController::Base
                  current: ->(*_) {},
                  expired: callback(:membership_expired),
                  no_history: callback(:no_membership_history))
-  end
-
-  callback(:membership_expired) do |membership|
-    flash.now[:warning] = render_to_string('application/membership_expired_warning',
-                                       locals: { membership: membership },
-                                       layout: false)
-  end
-
-  callback(:no_membership_history) do
-    flash.now[:warning] = render_to_string('application/no_membership_warning',
-                                       layout: false)
   end
 
   def logged_in?

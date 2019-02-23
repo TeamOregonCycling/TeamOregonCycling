@@ -19,6 +19,7 @@ class UpdatePassword < ApplicationService
     call_service(GetUser, user: user, allow_update: true,
                  with_result: callback(:user=))
   end
+  callback(:user=)
 
   def update_password
     user.update_attributes!(password: new_password)

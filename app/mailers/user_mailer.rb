@@ -7,6 +7,12 @@ class UserMailer < ApplicationMailer
         .password_reset_confirmation
         .deliver_now
     end
+
+    def send_membership_purchased(**params)
+      with(**params)
+        .membership_purchased
+        .deliver_now
+    end
   end
 
   def email_confirmation

@@ -11,10 +11,6 @@ RSpec.describe GetUser do
   let(:result_handler) { ->(user) { @result = user } }
   let(:result) { @result }
 
-  service_double(:authorizer, 'Authorize') { |authorized:, **_|
-    authorized.call
-  }
-
   it_requires_permission :show, on: :user
 
   context 'when user is passed as a User object' do

@@ -53,6 +53,7 @@ class CreateMembershipFromPayment < ApplicationService
   def load_user
     call_service(GetUser, user: user, with_result: callback(:user=))
   end
+  callback(:user=)
 
   def load_membership_type
     call_service(
@@ -61,6 +62,7 @@ class CreateMembershipFromPayment < ApplicationService
       with_result: callback(:membership_type=)
     )
   end
+  callback(:membership_type=)
 
   def create_membership
     self.membership = Membership.create!(
@@ -74,10 +76,7 @@ class CreateMembershipFromPayment < ApplicationService
   end
 
   def notify_admins
-    UserMailer
-      .with(user: user, membership: membership)
-      .membership_purchased
-      .deliver_now
+    UserMailer.send_membership_purchased(user: user, membership: membership)
   end
 
   class MembershipPurchase
