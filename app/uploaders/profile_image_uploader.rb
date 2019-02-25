@@ -23,7 +23,7 @@ class ProfileImageUploader < CarrierWave::Uploader::Base
   end
 
   version :list_big do
-    process resize_to_fill: [200, 200]
+    process resize_to_fill: [250, 250]
   end
 
   version :list_tiny do

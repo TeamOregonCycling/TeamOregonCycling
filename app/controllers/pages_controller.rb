@@ -9,9 +9,19 @@ class PagesController < ApplicationController
   def show
     page = params[:id].to_s
     if KNOWN_PAGES.include?(page)
-      render action: page
+      if respond_to?(page)
+        send(page)
+      else
+        render action: page
+      end
     else
       render_not_found!
+    end
+  end
+
+  def about_us
+    call_service(ListTeamLeaders) do |leaders|
+      render action: :about_us, locals: { leaders: leaders }
     end
   end
 end

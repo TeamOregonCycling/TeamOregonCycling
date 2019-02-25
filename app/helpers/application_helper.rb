@@ -95,7 +95,7 @@ module ApplicationHelper
       .to_formatted_s(:long_ordinal)
   end
 
-  def profile_image(user, size: 200)
+  def profile_image(user, size: 250)
     version = size <= 30 ? :list_tiny : :list_big
     url = if user.profile_image?
             user.profile_image.send(version).url

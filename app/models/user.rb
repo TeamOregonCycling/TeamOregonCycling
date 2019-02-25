@@ -12,6 +12,9 @@ class User < ApplicationRecord
   validates :email, :first_name, :last_name, presence: true
   validates :email, uniqueness: true
   validates :bio, length: { maximum: 500 }
+  validates :title, presence: {
+    if: :team_leader?, message: 'must be specified for team leaders'
+  }
 
 
   def display_name

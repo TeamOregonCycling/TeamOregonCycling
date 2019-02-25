@@ -20,7 +20,7 @@
       </h3>
       <div>
         <div id="profile-image">
-          <%= profile_image(user, size: 200) %>
+          <%= profile_image(user) %>
         </div>
         <dl id="user-account">
           <dt>First Name:</dt>
@@ -29,7 +29,12 @@
           <dt>Last Name:</dt>
           <dd><%= user.last_name %></dd>
 
-          <dt>Email Address</dt>
+          <% if user.team_leader? %>
+            <dt>Title:</dt>
+            <dd><%= user.title %></dd>
+          <% end %>
+
+          <dt>Email Address:</dt>
           <dd><%= user.email %></dd>
 
           <dt>Account Created:</dt>

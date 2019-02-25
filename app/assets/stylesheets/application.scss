@@ -566,16 +566,35 @@ th, td {
       padding: 1em;
 
       #profile-image {
-        @extend .col-sm-3;
+        @extend .col-xl-3;
+        min-width: 250px;
         text-align: center;
       }
 
       #bio {
-        @extend .col-sm-6;
+        @extend .col-lg-5;
       }
 
       dl {
-        @extend .col-sm-3;
+        display: flex;
+        flex-flow: row;
+        flex-wrap: wrap;
+        overflow: visible;
+        @extend .col-lg-4;
+
+        dt {
+          flex: 0 0 50%;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+
+        dd {
+          flex:0 0 50%;
+          margin-left: auto;
+          text-align: left;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
       }
     }
   }

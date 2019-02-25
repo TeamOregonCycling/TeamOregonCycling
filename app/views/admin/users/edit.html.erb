@@ -28,6 +28,8 @@
       <%= f.input :bio, maxlength: true, hint: 'Briefly introduce yourself to your teamates and our sponsors. This text will be included in the team roster.' %>
 
       <% with_permission_to(:manage_users) do %>
+        <%= f.input :team_leader, hint: 'Checking this box will cause the user to be displayed as part of the team leadership on the public site.' %>
+        <%= f.input :title, hint: 'Users title to be displayed in the team leadership section.' %>
         <%= f.input :added_to_mailing_list %>
         <%= f.input :invited_to_slack %>
         <%= f.association :roles, as: :check_boxes %>

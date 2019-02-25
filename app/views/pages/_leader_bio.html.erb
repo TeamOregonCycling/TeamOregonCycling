@@ -1,24 +1,12 @@
 <section class="leader-bio">
   <header>
-    <h4><%= name %></h4>
-    <div class="title"><%= title %></div>
+    <h4><%= leader.display_name %></h4>
+    <div class="title"><%= leader.title %></div>
   </header>
   <div class="headshot">
-    <%=
-      if image.blank?
-        image_tag('anonymous_user.png')
-      else
-        image_tag("leaders/#{image}.jpg")
-      end
-    %>
+    <%= profile_image(leader) %>
   </div>
   <div class="bio">
-    <p class="email">
-      <% if email.present? %>
-        Contact: <%= mail_to(email) %>
-      <% end %>
-      &nbsp;
-    </p>
-    <p><%= bio %></p>
+    <%= user_bio(leader) %>
   </div>
 </section>

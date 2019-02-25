@@ -58,7 +58,7 @@ module Admin
       params.require(:user)
         .permit(:email, :first_name, :last_name, :password,
                 :password_confirmation, :added_to_mailing_list,
-                :invited_to_slack, :profile_image, :bio,
+                :invited_to_slack, :profile_image, :bio, :team_leader, :title,
                 role_ids: [])
         .reject { |key, value|
         %w[password password_confirmation].include?(key) &&
