@@ -14,6 +14,12 @@
       <% end %>
       <%= f.input :first_name, label: 'First Name' %>
       <%= f.input :last_name, label: 'Last Name' %>
+      <div class="form-content">
+        <%= profile_image(user) %>
+        <%= profile_image(user, size: 30) %>
+      </div>
+      <%= f.input :profile_image, hint: 'Profile images are automatically cropped to a square. If the automatic cropping does not look the way you would like, please manually crop your image to a square aspect ratio prior to uploading.' %>
+      <%= f.input :profile_image_cache, as: :hidden %>
       <%= f.input(
         :password, label: 'New Password',
         hint: 'Leave password blank if you do not want to change it.'

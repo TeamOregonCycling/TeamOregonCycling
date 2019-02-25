@@ -90,6 +90,13 @@ module ApplicationHelper
       .to_formatted_s(:long_ordinal)
   end
 
+  def profile_image(user, size: 200)
+    version = size <= 30 ? :list_tiny : :list_big
+
+    image_tag(user.profile_image.send(version).url, alt: user.display_name,
+              height: size, width: size)
+  end
+
   private
 
   def service_context
