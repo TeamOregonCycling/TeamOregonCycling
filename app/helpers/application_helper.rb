@@ -90,19 +90,6 @@ module ApplicationHelper
       .to_formatted_s(:long_ordinal)
   end
 
-  def user_profile_image_tag(user, size: 100, show_disabled: false)
-    is_disabled = false
-    url = call_service(GetUserProfileImageURL,
-                       user: user,
-                       show_disabled: show_disabled,
-                       disabled: -> { is_disabled = true },
-                       size: size)
-    img_class = 'profile'
-    img_class += ' disabled' if show_disabled && is_disabled
-    image_tag url, width: size, height: size, alt: user.display_name,
-      class: img_class
-  end
-
   private
 
   def service_context

@@ -7,6 +7,10 @@ RSpec.describe ListMembershipTypes do
 
   callback_double(:result_handler, :each_handler)
 
+  service_double(:authorizer, 'Authorize') { |authorized:, **_|
+    authorized.call
+  }
+
   let!(:mtype_a) { create(:membership_type, name: 'a') }
   let!(:mtype_b) { create(:membership_type, name: 'b') }
   let!(:mtype_c) { create(:membership_type, name: 'c') }

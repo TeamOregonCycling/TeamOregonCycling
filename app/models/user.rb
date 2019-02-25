@@ -36,10 +36,6 @@ class User < ApplicationRecord
     false
   end
 
-  def gravatar_disabled?
-    !gravatar_enabled?
-  end
-
   class Anonymous < User
     before_save do
       raise 'Cannot save an anonymous user.'
