@@ -9,7 +9,15 @@
   <div>
 
     <div id="account-info">
-      <h3>Account Info</h3>
+      <h3>
+        Account Info
+        <%= link_to(octicon('pencil', :'aria-label' => 'Edit'),
+                    edit_user_path,
+                    class: 'btn btn-primary btn-sm float-right',
+                    'data-toggle' => 'tooltip',
+                    'data-placement' => 'bottom',
+                    title: 'Edit My Account')  unless current_page?(admin_user_path(user)) %>
+      </h3>
       <div>
         <div id="profile-image">
           <%= profile_image(user, size: 200) %>
@@ -24,9 +32,13 @@
           <dt>Email Address</dt>
           <dd><%= user.email %></dd>
 
-          <dt>Created:</dt>
-          <dd><%=l user.created_at %></dd>
+          <dt>Account Created:</dt>
+          <dd><%=long_date user.created_at %></dd>
         </dl>
+        <div id="bio">
+          <h4>Bio</h4>
+          <%= user_bio(user) %>
+        </div>
       </div>
     </div>
 

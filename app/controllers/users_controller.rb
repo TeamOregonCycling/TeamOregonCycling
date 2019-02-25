@@ -27,13 +27,6 @@ class UsersController < ApplicationController
                  error: callback(:account_creation_error))
   end
 
-  def show
-    require_permission(:show, on: current_user)
-    self.user = current_user
-    call_service(ListMembershipHistory,
-                 user: current_user, with_result: method(:memberships=))
-  end
-
   callback :account_created do |user|
     flash[:info] = render_to_string(partial: 'account_created_flash', locals: {user: user})
     session[:post_authentication_url] = new_membership_path
@@ -44,6 +37,40 @@ class UsersController < ApplicationController
     user.errors = errors
     flash.now[:error] = 'There was an error while creating your account.'
     render action: :new, locals: { user: user }
+  end
+
+  def show
+    require_permission(:show, on: current_user)
+    self.user = current_user
+    call_service(ListMembershipHistory,
+                 user: current_user, with_result: method(:memberships=))
+  end
+
+  def edit
+    render locals: { user: current_user }
+  end
+
+  def update
+    account_details = params
+      .require(:user)
+      .permit(:email, :password, :password_confirmation, :first_name,
+              :last_name, :profile_image, :profile_image_cache, :bio)
+
+    call_service(UpdateUser,
+                 user: current_user,
+                 changes: account_details,
+                 success: callback(:user_updated),
+                 error: callback(:user_update_failed))
+  end
+
+  callback(:user_updated) do |user|
+    flash[:info] = 'Account details updated.'
+    redirect_to user_path
+  end
+
+  callback(:user_update_failed) do |user|
+    flash[:error] = 'Your account could not be updated.'
+    render action: :edit, locals: { user: user }
   end
 
   private

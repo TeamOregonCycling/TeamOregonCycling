@@ -9,27 +9,30 @@
     </header>
     <div>
       <%= f.input :email, label: 'Email Address' %>
-      <% if user.pending_reconfirmation? %>
-        <div class="alert alert-warning">Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-      <% end %>
+      <%= f.input(
+        :password, label: 'New Password',
+        hint: 'Leave password blank if you do not want to change it.'
+      ) %>
+      <%= f.input :password_confirmation, label: 'Confirm New Password' %>
+
       <%= f.input :first_name, label: 'First Name' %>
       <%= f.input :last_name, label: 'Last Name' %>
+
       <div class="form-content">
         <%= profile_image(user) %>
         <%= profile_image(user, size: 30) %>
       </div>
       <%= f.input :profile_image, hint: 'Profile images are automatically cropped to a square. If the automatic cropping does not look the way you would like, please manually crop your image to a square aspect ratio prior to uploading.' %>
       <%= f.input :profile_image_cache, as: :hidden %>
-      <%= f.input(
-        :password, label: 'New Password',
-        hint: 'Leave password blank if you do not want to change it.'
-      ) %>
-      <%= f.input :password_confirmation, label: 'Confirm New Password' %>
+
+      <%= f.input :bio, maxlength: true, hint: 'Briefly introduce yourself to your teamates and our sponsors. This text will be included in the team roster.' %>
+
       <% with_permission_to(:manage_users) do %>
         <%= f.input :added_to_mailing_list %>
         <%= f.input :invited_to_slack %>
         <%= f.association :roles, as: :check_boxes %>
       <% end %>
+
       <div class="form-action-buttons">
         <%= f.submit class: 'btn btn-primary' %>
       </div>

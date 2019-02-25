@@ -267,7 +267,8 @@ CREATE TABLE public.users (
     invited_to_slack boolean DEFAULT false NOT NULL,
     password_reset_token character varying,
     password_reset_token_expires_at timestamp without time zone,
-    profile_image character varying
+    profile_image character varying,
+    bio text
 );
 
 
@@ -536,6 +537,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20190217184629'),
 ('20190223230033'),
 ('20190225052310'),
-('20190225060501');
+('20190225060501'),
+('20190225212533');
 
 

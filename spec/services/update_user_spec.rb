@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Admin::UpdateUser do
+RSpec.describe UpdateUser do
 
   let(:service_args) {{
     user: user,

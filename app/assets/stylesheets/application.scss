@@ -514,7 +514,8 @@ th, td {
 #new-membership,
 #membership-payment,
 #reset-password,
-#edit-password
+#edit-password,
+#edit-user
 {
   @extend .main-content;
 }
@@ -565,15 +566,16 @@ th, td {
       padding: 1em;
 
       #profile-image {
-        @extend .col-sm-4;
-
-        img {
-          width: 100%;
-          height: auto;
-        }
+        @extend .col-sm-3;
+        text-align: center;
       }
+
+      #bio {
+        @extend .col-sm-6;
+      }
+
       dl {
-        @extend .col-sm-8;
+        @extend .col-sm-3;
       }
     }
   }

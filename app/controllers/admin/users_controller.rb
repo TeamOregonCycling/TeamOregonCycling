@@ -27,7 +27,7 @@ module Admin
     end
 
     def update
-      call_service(Admin::UpdateUser, user: params[:id], changes: user_params,
+      call_service(UpdateUser, user: params[:id], changes: user_params,
                    success: method(:user_updated),
                    error: method(:user_update_error))
     end
@@ -58,7 +58,7 @@ module Admin
       params.require(:user)
         .permit(:email, :first_name, :last_name, :password,
                 :password_confirmation, :added_to_mailing_list,
-                :invited_to_slack, :profile_image,
+                :invited_to_slack, :profile_image, :bio,
                 role_ids: [])
         .reject { |key, value|
         %w[password password_confirmation].include?(key) &&

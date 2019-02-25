@@ -16,7 +16,11 @@ class ProfileImageUploader < CarrierWave::Uploader::Base
   end
 
   process resize_to_fill: [300, 300]
-  process convert: 'jpg'
+  process convert: 'png'
+
+  def filename
+    super.chomp(File.extname(super)) + '.png' if original_filename.present?
+  end
 
   version :list_big do
     process resize_to_fill: [200, 200]

@@ -1,0 +1,35 @@
+<div id="edit-user">
+  <section>
+    <%= simple_form_for user, url: user_path do |f| %>
+      <header>
+        <h3>Edit Your Account Info</h3>
+      </header>
+
+      <div>
+        <%= f.input :email, hint: 'If you change your email address, you will be unable to log in until you have confirmed your new email address.' %>
+
+        <%= f.input(
+          :password, label: 'New Password',
+          hint: 'Leave password blank if you do not want to change it.'
+        ) %>
+        <%= f.input :password_confirmation, label: 'Confirm New Password' %>
+
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+
+        <div class="form-content">
+          <%= profile_image(user) %>
+          <%= profile_image(user, size: 30) %>
+        </div>
+        <%= f.input :profile_image, hint: 'Image will be displayed on the team roster. Profile images are automatically cropped to a square. If the automatic cropping does not look the way you would like, please manually crop your image to a square aspect ratio prior to uploading.' %>
+        <%= f.input :profile_image_cache, as: :hidden %>
+
+        <%= f.input :bio, maxlength: true, hint: 'Briefly introduce yourself to your teamates and our sponsors. This text will be included in the team roster.' %>
+
+        <div class="form-action-buttons">
+          <%= f.submit 'Update Account' %>
+        </div>
+      </div>
+    <% end %>
+  </section>
+</div>

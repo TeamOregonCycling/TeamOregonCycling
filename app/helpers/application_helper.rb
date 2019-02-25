@@ -42,7 +42,12 @@ module ApplicationHelper
     " - #{@page_title}"
   end
 
+  def user_bio(user)
+    markdown(user.bio, no_images: true, no_links: true)
+  end
+
   def markdown(text, **options)
+    text ||= ''
     default_options = {
       filter_html:     true,
       hard_wrap:       true,

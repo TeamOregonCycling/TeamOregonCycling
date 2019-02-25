@@ -55,6 +55,15 @@
             <%= f.input :first_name %>
             <%= f.input :last_name %>
 
+            <div class="form-content">
+              <%= profile_image(user) %>
+              <%= profile_image(user, size: 30) %>
+            </div>
+            <%= f.input :profile_image, as: :file, hint: 'Image will be displayed on the team roster. Profile images are automatically cropped to a square. If the automatic cropping does not look the way you would like, please manually crop your image to a square aspect ratio prior to uploading.' %>
+            <%= f.input :profile_image_cache, as: :hidden %>
+
+            <%= f.input :bio, as: :text, maxlength: true, hint: 'Briefly introduce yourself to your teamates and our sponsors. This text will be included in the team roster.' %>
+
             <div class="form-action-buttons">
               <%= f.submit 'Create Account' %>
               <%= recaptcha('create_account') %>
