@@ -35,6 +35,10 @@ body {
   padding-top: 3.7em;
 }
 
+.profile-image {
+  @extend .rounded;
+}
+
 .btn {
   svg {
     fill: $white;
@@ -556,8 +560,21 @@ th, td {
   }
 
   #account-info {
-    dl {
-      @extend .card-body;
+    >div {
+      @extend .row;
+      padding: 1em;
+
+      #profile-image {
+        @extend .col-sm-4;
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+      dl {
+        @extend .col-sm-8;
+      }
     }
   }
 

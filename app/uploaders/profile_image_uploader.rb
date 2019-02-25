@@ -15,16 +15,8 @@ class ProfileImageUploader < CarrierWave::Uploader::Base
     %r{image/}
   end
 
-  def default_url(*args)
-    ActionController::Base.helpers.asset_path('ananymous_user.png')
-  end
-
   process resize_to_fill: [300, 300]
   process convert: 'jpg'
-
-  def filename
-    'profile_image.jpg'
-  end
 
   version :list_big do
     process resize_to_fill: [200, 200]

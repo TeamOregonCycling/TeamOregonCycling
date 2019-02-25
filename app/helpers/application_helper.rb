@@ -92,9 +92,14 @@ module ApplicationHelper
 
   def profile_image(user, size: 200)
     version = size <= 30 ? :list_tiny : :list_big
+    url = if user.profile_image?
+            user.profile_image.send(version).url
+          else
+            image_path('anonymous_user.png')
+          end
 
-    image_tag(user.profile_image.send(version).url, alt: user.display_name,
-              height: size, width: size)
+    image_tag(url, alt: user.display_name, height: size, width: size,
+              class: 'profile-image')
   end
 
   private
