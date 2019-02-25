@@ -20,6 +20,7 @@
       ) %>
       <%= f.input :password_confirmation, label: 'Confirm New Password' %>
       <% with_permission_to(:manage_users) do %>
+        <%= f.input :gravatar_enabled, label: "Gravatar Enabled? #{user_profile_image_tag(user, show_disabled: true)}".html_safe %>
         <%= f.input :added_to_mailing_list %>
         <%= f.input :invited_to_slack %>
         <%= f.association :roles, as: :check_boxes %>

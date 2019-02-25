@@ -10,19 +10,29 @@
 
     <div id="account-info">
       <h3>Account Info</h3>
-      <dl id="user-account">
-        <dt>First Name:</dt>
-        <dd><%= user.first_name %></dd>
+      <div class="card-body">
+      <div class="row">
+        <div id="user-profile-image">
+          <%= user_profile_image_tag(user, show_disabled: has_permission?(:manage_users)) %>
+          <% if user == current_user %>
+            <p><a href="https://gravatar.com/emails">edit profile image on Gravatar</a></p>
+          <% end %>
+        </div>
+        <dl id="user-account">
+          <dt>First Name:</dt>
+          <dd><%= user.first_name %></dd>
 
-        <dt>Last Name:</dt>
-        <dd><%= user.last_name %></dd>
+          <dt>Last Name:</dt>
+          <dd><%= user.last_name %></dd>
 
-        <dt>Email Address</dt>
-        <dd><%= user.email %></dd>
+          <dt>Email Address</dt>
+          <dd><%= user.email %></dd>
 
-        <dt>Created:</dt>
-        <dd><%=l user.created_at %></dd>
-      </dl>
+          <dt>Created:</dt>
+          <dd><%=l user.created_at %></dd>
+        </dl>
+      </div>
+      </div>
     </div>
 
     <% if has_permission?(:manage_users) %>
