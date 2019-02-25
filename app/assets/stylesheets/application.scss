@@ -551,8 +551,20 @@ th, td {
   }
 
   #account-info {
-    dl {
-      @extend .card-body;
+    #user-profile-image {
+      @extend .col-sm-4;
+
+      font-size: 0.8em;
+      font-style: italic;
+
+      img {
+        @extend .rounded;
+      }
+    }
+
+    #user-account {
+      @extend .col-sm-8;
+      padding: 0 1em;
     }
   }
 
