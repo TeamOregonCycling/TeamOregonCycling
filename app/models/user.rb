@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :memberships
   has_one :current_membership
 
+  mount_uploader :profile_image, ProfileImageUploader
+
   validates :email, :first_name, :last_name, presence: true
   validates :email, uniqueness: true
 

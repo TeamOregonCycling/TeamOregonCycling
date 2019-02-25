@@ -79,6 +79,11 @@ body {
     @extend .offset-md-4;
   }
 
+  .form-content {
+    @extend .help-block;
+    padding-bottom: 1em;
+  }
+
   >header {
     @extend .card-header;
     text-align: center;
