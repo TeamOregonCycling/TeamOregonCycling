@@ -99,14 +99,8 @@ module ApplicationHelper
                        size: size)
     img_class = 'profile'
     img_class += ' disabled' if show_disabled && is_disabled
-    content_tag :div do
-      c = image_tag url, width: size, height: size, alt: user.display_name,
-                         class: img_class
-      if is_disabled && user == current_user
-        c += content_tag :p, 'gravatar disabled by admin', class: 'disabled'
-      end
-      c
-    end
+    image_tag url, width: size, height: size, alt: user.display_name,
+      class: img_class
   end
 
   private
