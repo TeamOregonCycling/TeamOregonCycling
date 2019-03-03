@@ -15,9 +15,9 @@ class Membership < ApplicationRecord
   delegate :name, to: :membership_type, prefix: true
 
   def status
-    if Date.today.between?(starts_on, ends_on + 1.day)
+    if Date.today.between?(starts_on, ends_on)
       CURRENT
-    elsif ends_on < Date.today
+    elsif ends_on.to_date < Date.today
       EXPIRED
     else
       PENDING
