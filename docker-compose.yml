@@ -1,0 +1,15 @@
+version: '3.5'
+services:
+  db:
+    container_name: teamo-db
+    image: postgres:11.2
+    networks:
+      - teamo
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: teamo
+      POSTGRES_PASSWORD: teamo
+networks:
+  teamo:
+    name: teamo
