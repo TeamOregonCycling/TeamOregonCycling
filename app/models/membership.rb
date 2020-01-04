@@ -6,6 +6,9 @@ class Membership < ApplicationRecord
   belongs_to :user
   belongs_to :membership_type
 
+  scope :current, -> { where("CURRENT_TIMESTAMP BETWEEN starts_on AND ends_on") }
+  scope :expired, -> { where("ends_on < CURRENT_TIMESTAMP") }
+
   monetize :amount_paid_cents
 
   validates :starts_on, :ends_on, :amount_paid, presence: true

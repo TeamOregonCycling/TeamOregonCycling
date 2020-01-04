@@ -18,18 +18,24 @@ RSpec.describe Admin::ListUsers do
 
   it_requires_permission :manage_users
 
-  it 'provides all of the users, sorted by last name then first name' do
-    subject.call
-    expect(result_handler).to have_received(:call).with(
-      [user_b, user_c, user_a, context_user]
-    )
-  end
+  context 'when showing :all users' do
+    before do
+      service_args[:show] = :all
+    end
 
-  it 'does not include discarded users' do
-    user_b.discard
-    subject.call
-    expect(result_handler).to have_received(:call).with(
-      [user_c, user_a, context_user]
-    )
+    it 'provides all of the users, sorted by last name then first name' do
+      subject.call
+      expect(result_handler).to have_received(:call).with(
+        [user_b, user_c, user_a, context_user]
+      )
+    end
+
+    it 'does not include discarded users' do
+      user_b.discard
+      subject.call
+      expect(result_handler).to have_received(:call).with(
+        [user_c, user_a, context_user]
+      )
+    end
   end
 end
