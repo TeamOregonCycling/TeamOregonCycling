@@ -24,7 +24,7 @@ class UserMailer < ApplicationMailer
   def membership_purchased
     @user = params[:user]
     @membership = params[:membership]
-    mail to: 'info@teamoregon.org',
+    mail to: 'team-oregon-board@googlegroups.com',
          subject: 'Membership Purchased/Renewed'
   end
 
