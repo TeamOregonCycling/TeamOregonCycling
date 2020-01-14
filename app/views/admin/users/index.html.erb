@@ -1,5 +1,33 @@
 <% page_title 'Admin - Members' %>
 <div id="manage-users">
+  <div id="user-list-type-selection">
+    <div>
+      <%= link_to(octicon('eye-closed', :'aria-label' => 'Hide Inactive Accounts'),
+                  admin_users_path,
+                  class: "btn btn-primary btn-sm #{'active' if current_page?(admin_users_path)}",
+                  data: {
+                    toggle: 'tooltip',
+                    placement: 'bottom'
+                  },
+                  title: 'Hide Inactive Accounts') %>
+      <%= link_to(octicon('eye', :'aria-label' => 'Show All Accounts'),
+                  all_admin_users_path,
+                  class: "btn btn-primary btn-sm #{'active' if current_page?(all_admin_users_path)}",
+                  data: {
+                    toggle: 'tooltip',
+                    placement: 'bottom'
+                  },
+                  title: 'Show All Accounts') %>
+      <%= link_to(octicon('clock', :'aria-label' => 'Show Only Expired Accounts'),
+                  expired_admin_users_path,
+                  class: "btn btn-primary btn-sm #{'active' if current_page?(expired_admin_users_path)}",
+                  data: {
+                    toggle: 'tooltip',
+                    placement: 'bottom'
+                  },
+                  title: 'Show Only Expired Accounts') %>
+    </div>
+  </div>
   <table id="user-listing">
     <thead>
       <tr>

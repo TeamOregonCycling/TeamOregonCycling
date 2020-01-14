@@ -95,6 +95,15 @@ body.admin-site {
   }
 
   #manage-users {
+    #user-list-type-selection {
+      text-align: center;
+      padding: 0.5em;
+
+      >div {
+      @extend .btn-group;
+    }
+    }
+
     #user-listing {
       @extend .resource-table;
       .roles {

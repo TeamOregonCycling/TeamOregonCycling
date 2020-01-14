@@ -13,6 +13,20 @@ module Admin
                    with_result: ->(users) { self.users = users })
     end
 
+    def all
+      call_service(Admin::ListUsers,
+                   show: :all,
+                   with_result: ->(users) { self.users = users })
+      render action: :index
+    end
+
+    def expired
+      call_service(Admin::ListUsers,
+                   show: :expired,
+                   with_result: ->(users) { self.users = users })
+      render action: :index
+    end
+
     def show
       call_service(GetUser, user: params[:id],
                    with_result: method(:user=))

@@ -39,6 +39,10 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :memberships, only: %i[create edit update destroy]
     resources :users do
+      collection do
+        get 'all'
+        get 'expired'
+      end
       resources :memberships, only: %i[new index]
     end
 
