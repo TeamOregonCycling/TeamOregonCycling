@@ -24,7 +24,7 @@ class UserMailer < ApplicationMailer
   def membership_purchased
     @user = params[:user]
     @membership = params[:membership]
-    mail to: 'team-oregon-board@googlegroups.com',
+    mail to: ENV.fetch('TEAMO_CONTACT_FORM_TO'),
          subject: 'Membership Purchased/Renewed'
   end
 
