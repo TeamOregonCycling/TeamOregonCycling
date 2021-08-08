@@ -6,6 +6,10 @@ title_sponsor:
   logo_image: rodda.png
   additional_links:
     "Facebook": https://www.facebook.com/roddapaint
+    "Instagram - @roddapaint": https://www.instagram.com/roddapaint 
+  hashtags:
+    - finishright
+    - roddapaint
   description: >
     Rodda's family roots are strong and deep in the Pacific Northwest as our
     traditions date back to the 1930's. We are dedicated to developing and
@@ -26,22 +30,24 @@ title_sponsor:
       * Promote Success
 
 other_sponsors:
-  - slug: northlake
-    name: North Lake Physical Therapy
-    main_url: http://www.northlakephysicaltherapy.com/
-    logo_image: northlake.jpg
+  - slug: endurancepdx
+    name: Endurance Physical Therapy & Bike Fit Studio
+    main_url: https://www.endurancepdx.com
+    logo_image: endurancept.png
     additional_links:
-      "Facebook": https://www.facebook.com/North-Lake-Physical-Therapy-150697991645983/?fref=ts
+      "Instagram - @endurancepdx": https://www.instagram.com/endurancepdx
+    hashtags:
+      - endurancepdx
     description: >
-      North Lake Physical Therapy and Rehabilitation proudly continues its
-      support and partnership in 2019. Owners of North Lake, Michael Choate
-      MSPT, and Vince Blaney, MSPT, are both avid competitive cyclists and have
-      worked with many athletes over their careers. North Lake has multiple
-      locations around the Portland metro area to serve our members.
+      Jason and Jacob at Endurance Physical Therapy help keep Team Oregon healthy and allow us to
+      maximize our potential as athletes. Their services are utilized by team members of all
+      levels. 
 
-      The sport of cycling poses both mental and physical challenges, and the
-      team at North Lake is ready to get you back to peak form. North Lake works
-      with most insurance companies, increasing access for all members.
+      "We offer Physical Therapy services with a focus on each patient as an individual —
+      addressing specific needs and the whole person. Our Bike Fit process utilizes state of the
+      art biomechanical technology and our knowledgeable, experienced fitters help to ensure you
+      have the best fit for your body and goals. We truly believe EVERYBODY deserves a great bike
+      fit."
 
   - slug: olsons
     name: Olson's Bicycles
@@ -60,6 +66,8 @@ other_sponsors:
   - slug: re_sports
     name: Sports Wellness Consulting, PC
     main_url: http://www.melissashays.com/
+    additional_links:
+      "Facebook": https://www.facebook.com/sportswellnessconsultingpc
     logo_image: re_sports.jpg
     description: >
       Melissa Shays, ND, LAc, CISSN is pleased to offer her support to the
@@ -84,6 +92,36 @@ other_sponsors:
 
       * Consult during bike fits to discuss body mechanics, diagnose pain and
         correct physical barriers.
+
+  - slug: trailheadcoffee
+    name: Trailhead Coffee Roasters
+    main_url: https://www.trailheadcoffeeroasters.com/
+    additional_links:
+      "Facebook": https://www.facebook.com/trailheadcoffeeroasters
+      "Instagram - @trailheadcoffeeroasters": https://instagram.com/trailheadcoffeeroasters
+    hashtags:
+      - trailheadcoffeeroasters
+    logo_image: trailhead.png 
+    description: >
+      Our vision for great coffee started at the trailhead: a place where people go their own way
+      or come together to take in the vastness and raw beauty of nature, creating memorable,
+      lasting impressions. Wherever that trailhead is for you, we invite you to take it all in
+      with an inspired cup brought to you by nature herself.
+
+  - slug: rathe
+    name: Rathe Athlete Development
+    main_url: https://www.ratheathletedevelopment.com
+    additional_links:
+      "Instagram - @ratheathletedevelopment": https://instagram.com/ratheathletedevelopment
+    hashtags:
+      - ratheathletedevelopment
+    logo_image: rathe.png 
+    description: >
+      Athletes at every stage have a different set of challenges and goals in front of them. Make
+      sure every step is making you healthier, stronger, and happier. Rathe Athlete Development is
+      here for you. Whatever your goal is on the bike, that is your Race Day. Use your engine
+      effectively. Know the course, the competition, find your path to success. Be prepared to
+      outperform yourself.
 
   - slug: castelli
     name: Castelli
@@ -119,4 +157,4 @@ other_sponsors:
       replacement from carbohydrates. Before Nuun, if you wanted an electrolyte
       drink, the result was a bottle full of sugar. With its simple,
       self-dissolving, sugar-free electrolyte tab, Nuun revolutionized the
-      sports drink and is proud to partner with Team Oregon in 2019.
+      sports drink and is proud to partner with Team Oregon.
